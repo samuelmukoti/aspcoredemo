@@ -27,7 +27,9 @@ namespace Demo1.Pages.Customers
                 return NotFound();
             }
 
-            Customer = await _context.Customer.SingleOrDefaultAsync(m => m.Id == id);
+            Customer = await _context.Customer.Where(m => m.Id == id)
+                                              .Include(m => m.Messages)
+                                              .SingleOrDefaultAsync();
 
             if (Customer == null)
             {

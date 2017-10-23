@@ -41,3 +41,50 @@
     <a asp-page="./Edit" asp-route-id="@Model.Customer.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               MessageID
+            </th>
+            <th>
+               Src
+            </th>
+            <th>
+               Destination
+            </th>
+            <th>
+               Text
+            </th>
+           
+            <th>
+               Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Customer.Messages)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MessageId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SourceAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DestinationAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>              
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCreated)
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>
